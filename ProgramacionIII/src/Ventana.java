@@ -8,9 +8,14 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -37,7 +42,15 @@ public class Ventana extends JFrame{
 	
 	public void iniciarComponentes ()
 	{
-		this.login();
+		
+		this.admin();
+		//this.login();
+		//this.arearegistro();
+		
+		
+	}
+	
+	public void arearegistro() {
 		JPanel registro = new JPanel();
 		
 		registro.setSize(this.getWidth()/2 ,this.getHeight());
@@ -117,17 +130,36 @@ public class Ventana extends JFrame{
 		JRadioButton rechazar = new JRadioButton("Lo rechazo");
 		rechazar.setBounds(180,380,90,20);
 		registro.add(rechazar);
+	
 		
-		JComboBox colonias
+		JLabel localidad= new JLabel("localidad");
+		localidad.setOpaque(true);
+		localidad.setBounds(30, 400, 260, 40);
+		localidad.setFont(new Font("Times New Roman",Font.BOLD,16));
+		localidad.setOpaque(false);
+		registro.add(localidad);
 		
+		
+		String lugares [] = {"Seleccione su colonia","Villas del encanto", "8 de octubre", "Pedregal", "Santa fe", "Santa Maria" };
+		
+		JComboBox colonias = new JComboBox(lugares);
+		colonias.setBounds(30,430,290,30);
+		colonias.setOpaque(false);
+		registro.add(colonias);
 		
 		ButtonGroup opcion = new ButtonGroup();
 		opcion.add(aceptar);
 		opcion.add(rechazar);
 		
-		
+		//Boton de acceder
+		JButton entrada = new JButton("Registrar");
+		entrada.setSize(100,50);
+		entrada.setLocation(320, 350);
+		entrada.setFont(new Font("Times New Roman",Font.BOLD,14));
+		registro.add(entrada);
 		
 	}
+	
 	public void login ()
 	{
 		
@@ -204,7 +236,112 @@ public class Ventana extends JFrame{
 		
 	}
 
-	
+	public void admin ()
+	{
+		
+		JPanel menu = new JPanel();
+		menu.setSize(this.getWidth() ,this.getHeight());
+		menu.setLocation(0,0);
+		menu.setBackground(Color.BLUE);
+		menu.setLayout(null);
+		
+		
+		JMenuBar barra = new JMenuBar();
+		JMenu menuFile = new JMenu("Archivo");
+		JMenuItem openItem = new JMenuItem("Abrir archivo");
+		JMenuItem createItem = new JMenuItem("Crear archivo");
+		
+		barra.add(menuFile);
+		menuFile.add(openItem);
+		menuFile.add(createItem);
+		this.setJMenuBar(barra);
+		
+		
+		JLabel inscripcion = new JLabel("USUARIOS");
+		inscripcion.setBounds(450, 50, 85, 40);
+		inscripcion.setOpaque(true);
+		inscripcion.setFont(new Font("Arial",Font.BOLD,16));
+		menu.add(inscripcion);
+		
+		
+//		JLabel titleWidget = new JLabel("Total de usuarios");
+//		titleWidget.setBounds(100, 110, 300, 40);
+//		titleWidget.setForeground(Color.WHITE);
+//		menu.add(titleWidget);
+//		
+//		JLabel totalUser = new JLabel("100");
+//		totalUser.setBounds(180, 150, 300, 40);
+//		totalUser.setFont(new Font("Arial",Font.BOLD,20));
+//		totalUser.setForeground(Color.WHITE);
+//		menu.add(totalUser);
+//		
+//		JLabel widget = new JLabel("");
+//		widget.setBounds(40, 120, 150, 50);
+//		widget.setOpaque(true);
+//		widget.setBackground(Color.BLACK);
+//		menu.add(widget);
+//		
+		
+		
+//		JLabel tabla = new JLabel("");
+//		tabla.setBounds(40, 150, 900, 250);
+//		tabla.setOpaque(true);
+//		tabla.setBackground(Color.BLACK);
+//		menu.add(tabla);
+		
+		JButton entrada = new JButton("Exportar");
+		entrada.setSize(100,20);
+		entrada.setLocation(840, 130);
+		entrada.setFont(new Font("Times New Roman",Font.BOLD,14));
+		menu.add(entrada);
+		
+		JButton descargar = new JButton("Añadir");
+		descargar.setSize(100,20);
+		descargar.setLocation(740, 130);
+		descargar.setFont(new Font("Times New Roman",Font.BOLD,14));
+		menu.add(descargar);
+		
+		
+		String titulo [] = {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones" };
+		String tablaData [] [] ={{ "No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+								 {"No. de control","Nombre","Apellidos","Semestre","Promedio","Aciones"},
+			};
+		
+		
+		JTable tablausers = new JTable(tablaData,titulo);
+		JScrollPane Jscroll = new JScrollPane(tablausers);
+		Jscroll.setBounds(200, 200, 600, 100);
+		menu.add(Jscroll);
+		
+		
+		menu.add(barra);
+		
+		
+		
+		
+		
+		this.add(menu);
+	}
 	
 
 }
