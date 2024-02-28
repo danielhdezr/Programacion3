@@ -1,8 +1,10 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.util.logging.LoggingMXBean;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -24,9 +26,9 @@ public class Ventana extends JFrame{
 	public Ventana ()
 	{
 
-		this.setSize(290,400);
+		this.setSize(720,600);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Calculadora");
+		this.setTitle("Cuenta");
 		this.setMinimumSize(new Dimension(250,250));
 		this.setMaximumSize(new Dimension(1000,750));
 		this.setResizable(true);
@@ -43,9 +45,9 @@ public class Ventana extends JFrame{
 	{
 		
 		//this.admin();
-		//this.login();
+		this.login();
 		//this.arearegistro();
-		this.calculadora();
+		//this.calculadora();
 		
 	}
 	
@@ -166,68 +168,114 @@ public class Ventana extends JFrame{
 
 		JPanel login = new JPanel();
 		
-		login.setSize(this.getWidth()/2 ,this.getHeight());
-		login.setBackground(new Color(128, 128, 128));
+		login.setSize(800,600);
+		login.setBackground(new Color(2, 74, 209));
 		login.setLayout(null);
 		
 		this.add(login);
 		
+//		JPanel segFonfo = new JPanel();
+//		segFonfo.setBounds(40, 60, 300, 400);
+//		segFonfo.setBackground(Color.BLUE);
+//		login.add(segFonfo);
+		
 		//titulo
-		JLabel loginentrada = new JLabel("ACCEDER");
+		JLabel loginentrada = new JLabel("Mi cuenta");
 		loginentrada.setSize(100,50);
-		loginentrada.setLocation(160,20);
-		loginentrada.setOpaque(true);
+		loginentrada.setLocation(300,20);
+		loginentrada.setForeground(Color.WHITE);
+		loginentrada.setOpaque(false);
 		loginentrada.setFont(new Font("Arial",Font.BOLD,20));
-		loginentrada.setBackground(Color.GREEN);
 		login.add(loginentrada);
+		
+		JLabel entrada = new JLabel("Iniciar secion");
+		entrada.setBounds(260, 60, 180, 60);
+		entrada.setForeground(Color.YELLOW);
+		entrada.setFont(new Font("Arial",Font.BOLD,26));
+		login.add(entrada);
+
 		
 
 		
 		//Titulo de usuario
 		JLabel user = new JLabel("Nombre de usuario");
-		user.setBounds(10, 120, 2000, 40);
-		user.setFont(new Font("Times New Roman",Font.BOLD,16));
+		user.setBounds(200, 120, 2000, 40);
+		user.setFont(new Font("Arial",Font.BOLD,16));
+		user.setForeground(Color.WHITE);
 		login.add(user);
 		
 		//Añadir el usuario
 		JTextField usuario = new JTextField();
-		usuario.setBounds(10, 150, 220, 40);
+		usuario.setBounds(200, 160, 300, 40);
 		usuario.setFont(new Font("Times New Roman",Font.BOLD,14));
-
 		login.add(usuario);
+		
+		
+
 		
 		//Titulo de contraseña
 		JLabel contraseña = new JLabel("Ingresar contraseña");
-		contraseña.setBounds(10, 200, 2000, 40);
-		contraseña.setFont(new Font("Times New Roman",Font.BOLD,16));
+		contraseña.setBounds(200, 200, 2000, 40);
+		contraseña.setForeground(Color.WHITE);
+		contraseña.setFont(new Font("Arial",Font.BOLD,16));
 		login.add(contraseña);
 		
 		//Añadir la contraseña
 		JPasswordField contrausario = new JPasswordField();
-		contrausario.setBounds(10, 230, 220, 40);
+		contrausario.setBounds(200, 240, 300, 40);
 		login.add(contrausario);
 		
 		//Recordar usuario
 		JCheckBox recordar = new JCheckBox("Recordarme");
-		recordar.setBounds(10,250,150,80);
+		recordar.setBounds(197,250,150,80);
 		recordar.setOpaque(false);
-		recordar.setFont(new Font("Times New Roman",Font.BOLD,16));
+		recordar.setForeground(Color.WHITE);
+		recordar.setFont(new Font("Arial",Font.BOLD,16));
 		login.add(recordar);
 		
+		
+		JLabel logo = new JLabel();
+		logo.setIcon(new ImageIcon(getClass().getResource("usuario.png")));
+		logo.setBounds(160, 80, 300, 200);
+		login.add(logo);
+		
+		JLabel contraLogo = new JLabel();
+		contraLogo.setIcon(new ImageIcon(getClass().getResource("ojo.png")));
+		contraLogo.setBounds(160, 160, 300, 200);
+		login.add(contraLogo);
+ 		
 		
 		//Boton de acceder
 		JButton boton = new JButton("Acceder");
 		boton.setSize(100,50);
-		boton.setLocation(160, 350);
-		boton.setFont(new Font("Times New Roman",Font.BOLD,14));
+		boton.setLocation(300, 320);
+		boton.setBackground(new Color(244,194,8));
+		boton.setForeground(Color.BLACK);
+		boton.setFont(new Font("Arial",Font.BOLD,14));
 		login.add(boton);
 		
 		//Olvido contraseña
 		JLabel olvidar = new JLabel("Olvide mi contraseña");
-		olvidar.setBounds(140, 250, 150, 80);
+		olvidar.setBounds(350, 250, 150, 80);
+		olvidar.setForeground(Color.WHITE);
 		olvidar.setOpaque(false);
-		olvidar.setFont(new Font("Times New Roman",Font.BOLD,16));
+		olvidar.setFont(new Font("Arial",Font.BOLD,14));
 		login.add(olvidar);
+		
+		JButton botonCrear = new JButton("Crear cuenta");
+		botonCrear.setSize(150,50);
+		botonCrear.setLocation(280, 420);
+		botonCrear.setBackground(new Color(244,194,8));
+		botonCrear.setForeground(Color.BLACK);
+		botonCrear.setFont(new Font("Arial",Font.BOLD,14));
+		login.add(botonCrear);
+		
+		JLabel crearCuenta = new JLabel("¿Desea tener una cuenta?");
+		crearCuenta.setBounds(230, 300, 250, 200);
+		crearCuenta.setForeground(Color.WHITE);
+		crearCuenta.setFont(new Font("Arial",Font.BOLD,20));
+		login.add(crearCuenta);
+		
 		
 		
 		
