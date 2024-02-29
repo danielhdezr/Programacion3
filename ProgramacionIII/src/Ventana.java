@@ -4,15 +4,19 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.beans.JavaBean;
+import java.security.PublicKey;
 import java.util.Iterator;
 import java.util.logging.LoggingMXBean;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -25,6 +29,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
 
 public class Ventana extends JFrame{
 	
@@ -53,7 +59,8 @@ public class Ventana extends JFrame{
 		//this.login();
 		//this.arearegistro();
 		//this.calculadora();
-		this.mat();
+		//this.mat();
+		this.capital();
 	}
 	
 	public void arearegistro() {
@@ -395,7 +402,6 @@ public class Ventana extends JFrame{
 		this.add(menu);
 	}
 	
-	
 	public void calculadora () {
 		
 		
@@ -527,10 +533,8 @@ public class Ventana extends JFrame{
 		this.add(fondo);
 		
 	}
-
 	
-	public void mat ( ) {
-		
+	public void mat () {
 		
 		this.setSize(480,650);
 		JPanel panel = new JPanel();
@@ -584,4 +588,90 @@ public class Ventana extends JFrame{
 				
 		
 	}
+	
+	JPanel[] paneles = new JPanel[7];
+	public void capital ( ) {
+		
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.setBackground(Color.WHITE);
+		panel.setSize(this.getWidth() ,this.getHeight());
+		
+		Border border = BorderFactory.createLineBorder(Color.white, 30);
+		panel.setBorder(border);
+		JLabel interesTitulo = new JLabel("Interes");
+		panel.add(interesTitulo, BorderLayout.NORTH);
+	
+		
+		JPanel centroPanel = new JPanel(new GridLayout(7,1));
+		panel.add(centroPanel, BorderLayout.CENTER);
+		
+		TitledBorder tBorder =  new TitledBorder("Calcular Interes");
+		centroPanel.setBorder(tBorder);
+		
+		for(int i = 0; i < paneles.length; i++) {
+			paneles[i] = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
+			if (i < 4) {
+				paneles[i].setBackground(Color.green);
+			} else if (i > 4) {
+				paneles[i].setBackground(Color.pink);
+			} else {
+				paneles[i].setBackground(Color.white);
+			}
+			centroPanel.add(paneles[i]);
+		}
+		JLabel capital = new JLabel("Capital:       ");
+		paneles[0].add(capital);
+		
+		JTextField capitaltxt= new JTextField();
+		capitaltxt.setPreferredSize(new Dimension(200, 30));
+		paneles[0].add(capitaltxt);
+		
+		JLabel tiempo = new JLabel("Tiempo:       ");
+		paneles[1].add(tiempo);
+		
+		JTextField tiempotxt= new JTextField();
+		tiempotxt.setPreferredSize(new Dimension(200, 30));
+		paneles[1].add(tiempotxt);
+		
+		JLabel tasaInteres = new JLabel("Tasa Interes:");
+		paneles[2].add(tasaInteres);
+		
+		JTextField tasaInterestxt= new JTextField();
+		tasaInterestxt.setPreferredSize(new Dimension(200, 30));
+		paneles[2].add(tasaInterestxt);
+		
+		JButton calcular = new JButton("Calcular");
+		JButton cancelar = new JButton("Cancelar");
+		calcular.setBackground(Color.black);
+		cancelar.setBackground(Color.black);
+		calcular.setForeground(Color.white);
+		cancelar.setForeground(Color.white);
+		paneles[3].add(calcular);
+		paneles[3].add(cancelar);
+		
+		JLabel interes = new JLabel("Interes: ");
+		paneles[5].add(interes);
+		
+		JTextField interestxt= new JTextField();
+		interestxt.setPreferredSize(new Dimension(200, 30));
+		paneles[5].add(interestxt);
+		
+		JLabel monto = new JLabel("Monto: ");
+		paneles[6].add(monto);
+		
+		JTextField montotxt= new JTextField();
+		montotxt.setPreferredSize(new Dimension(200, 30));
+		paneles[6].add(montotxt);
+		
+		
+		this.add(panel);
+
+
+		
+	}
+
+
 }
+
+
+
