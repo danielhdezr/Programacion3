@@ -55,12 +55,12 @@ public class Ventana extends JFrame{
 	public void iniciarComponentes ()
 	{
 		
-		//this.admin();
+		this.admin();
 		//this.login();
 		//this.arearegistro();
 		//this.calculadora();
 		//this.mat();
-		this.capital();
+		//this.capital();
 	}
 	
 	public void arearegistro() {
