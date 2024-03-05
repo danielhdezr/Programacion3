@@ -37,6 +37,7 @@ public class Diseño {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -53,6 +54,7 @@ public class Diseño {
 	 * Create the application.
 	 */
 	public Diseño() {
+
 		initialize();
 		
 	}
@@ -62,7 +64,7 @@ public class Diseño {
 	 */
 	private void initialize() {
 		
-		
+	
 		Ventana = new JFrame();
 		Ventana.setBounds(100, 100, 643, 626);
 		Ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -248,9 +250,9 @@ public class Diseño {
 		btnSalir.setBounds(69, 145, 107, 42);
 		panel_5.add(btnSalir);
 		
-		JLabel lblNewLabel = new JLabel("Mi ventana");
+		JLabel lblNewLabel = new JLabel("Registro de usuarios\r\n");
 		lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 14));
-		lblNewLabel.setBounds(38, 10, 102, 30);
+		lblNewLabel.setBounds(38, 10, 193, 30);
 		panel.add(lblNewLabel);
 	}
 }
