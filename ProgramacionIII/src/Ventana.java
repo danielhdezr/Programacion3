@@ -44,7 +44,7 @@ public class Ventana extends JFrame{
 	public Ventana ()
 	{
 
-		this.setSize(720,600);
+		this.setSize(900,600);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Cuenta");
 		this.setMinimumSize(new Dimension(250,250));
@@ -78,45 +78,195 @@ public class Ventana extends JFrame{
 		
 		Graphics2D g2d =  (Graphics2D) g;
 		
-		g2d.setColor(Color.BLUE);
+
+		g2d.setColor(Color.decode("#c3f8ff"));
+		g2d.fillRect(1, 10, 900, 600);
 		
-		g2d.fillRect(50, 50, 200, 100);
+		g2d.setColor(Color.decode("#FFA07A"));
+		g2d.fillRect(0, 500, 900, 100);
 		
-		g2d.clearRect(100, 100, 100, 100);
-		
-		g2d.fillArc(300, 300, 100, 100, 45, 180);
-		g2d.drawArc(250, 300, 100, 100, 45, 180);
+		g2d.setColor(Color.decode("#95b8f6"));
+		g2d.fillRect(300, 250, 150, 250);
 		
 		g2d.setColor(Color.BLACK);
+		g2d.fillRect(450, 270, 15, 230);
 		
-		g2d.drawLine(0, 0, 500, 500);
+		g2d.setColor(Color.decode("#ffb7c5"));
+		g2d.fillRect(170, 350, 150, 150);
 		
-		g2d.drawOval(400, 400, 50, 80);
-		g2d.fillOval(350, 400, 50, 80);
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(320, 370, 15, 130);
 		
-		int xPoint[] = {100,250,300};
-		int yPoint[] = {100,200,300};
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(740, 340, 155, 160);
+		g2d.setColor(Color.decode("#3ADF00"));
+		g2d.fillRect(745, 345, 150, 155);
 		
-		g2d.setColor(Color.red);
-		g2d.fillPolygon(xPoint,yPoint,3);
+		//Sombras
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(1, 500, 900, 5);
 		
-		g2d.setFont(new Font("Marker Felt",Font.BOLD,20));
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(300, 250, 150, 5);
 		
-		g2d.drawString("Hola", 250, 100);
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(170, 345, 150, 5);
 		
-		g2d.setStroke(new BasicStroke(10));
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(300, 250, 5, 100);
 		
-		g2d.drawRoundRect(350, 140, 200, 150, 10, 10);
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(300, 250, 5, 100);
 		
-		try {
-		BufferedImage image = ImageIO.read(new File("src/casa.png"));
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(170, 350, 5, 150);
 		
-		g2d.drawImage(image,0,0,null);
-		}catch (IOException e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
+
+
+		//Cubos
+		g2d.setColor(Color.black);
+		g2d.fillRect(70, 200, 60, 60);
+		g2d.setColor(Color.decode("#F09B11"));
+		g2d.fillRect(75, 205, 50, 50);
 		
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(250, 100, 60, 60);
+		g2d.setColor(Color.decode("#F09B11"));
+		g2d.fillRect(255, 105, 50, 50);
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(315, 100, 60, 60);
+		g2d.setColor(Color.decode("#F09B11"));
+		g2d.fillRect(320, 105, 50, 50);
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(750, 180, 60, 60);
+		g2d.setColor(Color.decode("#F09B11"));
+		g2d.fillRect(755, 185, 50, 50);
+		
+		//Tuberia
+		g2d.setColor(Color.decode("#339511"));
+		g2d.fillRect(550, 345, 100, 50);
+		
+		g2d.setColor(Color.decode("#339511"));
+		g2d.fillRect(560, 345, 80, 155);
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(640, 395, 5, 105);
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(650, 345, 5, 50);
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(550, 345, 5, 50);
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(560, 395, 5, 105);
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(550, 345, 100, 5);
+
+		//Detalles cubos
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(80, 210, 5, 5); 
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(115, 210, 5, 5); 
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(80, 240, 5, 5); 
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(115, 240, 5, 5); 
+		
+		
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(260, 110, 5, 5); 
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(295, 110, 5, 5); 
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(260, 140, 5, 5); 
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(295, 140, 5, 5); 
+		
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(325, 110, 5, 5); 
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(360, 110, 5, 5); 
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(325, 140, 5, 5); 
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(360, 140, 5, 5); 
+		
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(760, 190, 5, 5); 
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(795, 190, 5, 5); 
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(760, 220, 5, 5); 
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(795, 220, 5, 5); 
+		
+		// Arbusto
+		g2d.setColor(Color.black);
+		g2d.fillOval(70, 425, 60, 80);
+		g2d.fillOval(50, 440, 80, 60);
+		g2d.fillOval(80, 440, 80, 60);
+		
+
+
+		g2d.setColor(Color.decode("#a3ffac"));
+		g2d.fillOval(70, 430, 60, 80);
+		g2d.fillOval(50, 450, 80, 60);
+		g2d.fillOval(80, 450, 80, 60);
+		
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillArc(410,270, 30, 30, 360, 360);
+		g2d.setColor(Color.decode("#A7A7A7"));
+		g2d.fillArc(412,272, 25, 25, 360, 360);
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillArc(310,270, 30, 30, 360, 360);
+		g2d.setColor(Color.decode("#A7A7A7"));
+		g2d.fillArc(312,272, 25, 25, 360, 360);
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillArc(410,460, 30, 30, 360, 360);
+		g2d.setColor(Color.decode("#A7A7A7"));
+		g2d.fillArc(412,462, 25, 25, 360, 360);
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillArc(270,460, 30, 30, 360, 360);
+		g2d.setColor(Color.decode("#A7A7A7"));
+		g2d.fillArc(272,462, 25, 25, 360, 360);
+		
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillArc(190,460, 30, 30, 360, 360);
+		g2d.setColor(Color.decode("#A7A7A7"));
+		g2d.fillArc(192,462, 25, 25, 360, 360);
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillArc(270,360, 30, 30, 360, 360);
+		g2d.setColor(Color.decode("#A7A7A7"));
+		g2d.fillArc(272,362, 25, 25, 360, 360);
+		
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillArc(190,360, 30, 30, 360, 360);
+		g2d.setColor(Color.decode("#A7A7A7"));
+		g2d.fillArc(192,362, 25, 25, 360, 360);
+		
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillArc(760,460, 30, 30, 360, 360);
+		g2d.setColor(Color.decode("#A7A7A7"));
+		g2d.fillArc(762,462, 25, 25, 360, 360);
+		
+		g2d.setColor(Color.BLACK);
+		g2d.fillArc(760,360, 30, 30, 360, 360);
+		g2d.setColor(Color.decode("#A7A7A7"));
+		g2d.fillArc(762,362, 25, 25, 360, 360);
+
+
 	}
 	
 	public void arearegistro() {
