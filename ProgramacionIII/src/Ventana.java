@@ -996,7 +996,7 @@ public class Ventana extends JFrame{
 				int g = (int)Math.floor(Math.random()*255+1);
 				int b = (int)Math.floor(Math.random()*255+1);
 				
-				JButton otroBoton = new JButton("Click me");
+				JButton otroBoton = new JButton("Click Me");
 				otroBoton.setBorder(BorderFactory.createLineBorder(new Color(r,g,b),3));
 				otroBoton.setBounds(x,y,w,h);
 				otroBoton.setOpaque(true);
