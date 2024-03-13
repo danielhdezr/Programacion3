@@ -31,6 +31,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -66,15 +67,15 @@ public class Ventana extends JFrame{
 		
 		//this.admin();
 		//this.login();
-		this.arearegistro();
+		//this.arearegistro();
 		//this.calculadora();
 		//this.mat();
 		//this.capital();
-		
+		this.botones();
 		
 	}
 	
-//	public void paint(Graphics g)	{
+	//public void paint(Graphics g)	{
 		
 //		super.paint(g);
 //		
@@ -281,10 +282,8 @@ public class Ventana extends JFrame{
 //		g2d.fillRect(870, 450, 5,35);
 //		g2d.fillRect(875, 420, 5,30);
 //		g2d.fillRect(820, 415, 60,5);
-//	}
-//	
-//	
-//	
+	//}
+	
 	
 	public void arearegistro() {
 		JPanel registro = new JPanel();
@@ -970,6 +969,57 @@ public class Ventana extends JFrame{
 		
 	}
 
+	public void botones() {
+		
+		this.setSize(500,700);
+		
+		JPanel botonPanel = new JPanel();
+		botonPanel.setSize(this.getWidth(),this.getHeight());
+		botonPanel.setLocation(0,0);
+		botonPanel.setBackground(Color.GREEN);
+		botonPanel.setLayout(null);
+		
+		JButton superboton = new JButton("Click me");
+		superboton.setBounds(50, 480, 400, 70);
+		superboton.setFont(new Font("Arial",Font.BOLD,16));
+		botonPanel.add(superboton);
+		superboton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int x = (int)Math.floor(Math.random()*450+1);
+				int y = (int)Math.floor(Math.random()*650+1);				
+				int w = (int)Math.floor(Math.random()*120+1);
+				int h = (int)Math.floor(Math.random()*120+1);
+				
+				int r = (int)Math.floor(Math.random()*255+1);
+				int g = (int)Math.floor(Math.random()*255+1);
+				int b = (int)Math.floor(Math.random()*255+1);
+				
+				JButton otroBoton = new JButton("Click me");
+				otroBoton.setBorder(BorderFactory.createLineBorder(new Color(r,g,b),3));
+				otroBoton.setBounds(x,y,w,h);
+				otroBoton.setOpaque(true);
+				otroBoton.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+						JOptionPane.showMessageDialog(null,r);
+					}
+				});
+				
+				getContentPane().repaint();
+				getContentPane().revalidate();
+				botonPanel.add(otroBoton);
+				
+			}
+		});
+		
+		
+		this.add(botonPanel);
+		
+	}
 
 }
 
