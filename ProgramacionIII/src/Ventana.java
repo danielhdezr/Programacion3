@@ -1007,7 +1007,15 @@ public class Ventana extends JFrame{
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						
-						JOptionPane.showMessageDialog(null,otroBoton.getText());
+						
+						JButton yo =((JButton)e.getSource());
+						
+						botonPanel.remove(yo);
+						
+						getContentPane().repaint();
+						getContentPane().revalidate();
+						
+//						JOptionPane.showMessageDialog(null,otroBoton.getText());
 						
 					}
 				});
@@ -1020,8 +1028,8 @@ public class Ventana extends JFrame{
 			}
 		});
 		
-		botonPanel.addMouseListener(new MouseAdapter() {
-			
+		
+		botonPanel.addMouseListener(new MouseAdapter() {	
 			 public void mouseClicked(MouseEvent e) {
 	                super.mouseClicked(e);
 	                int x = e.getX();
