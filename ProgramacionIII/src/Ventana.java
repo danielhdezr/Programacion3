@@ -1020,7 +1020,39 @@ public class Ventana extends JFrame{
 			}
 		});
 		
-		
+		botonPanel.addMouseListener(new MouseAdapter() {
+			
+			 public void mouseClicked(MouseEvent e) {
+	                super.mouseClicked(e);
+	                int x = e.getX();
+	                int y = e.getY();
+	                int w = (int)Math.floor(Math.random()*120+1);
+					int h = (int)Math.floor(Math.random()*120+1);
+	                
+					
+					int r = (int)Math.floor(Math.random()*255+1);
+					int g = (int)Math.floor(Math.random()*255+1);
+					int b = (int)Math.floor(Math.random()*255+1);
+	                
+	                JButton button = new JButton(r+","+g+","+b);
+	                button.setBounds(x, y, w, h);
+	                button.setBorder(BorderFactory.createLineBorder(new Color(r,g,b),3));
+	                botonPanel.add(button);
+	                botonPanel.revalidate();
+	                botonPanel.repaint();
+	                button.addActionListener(new ActionListener() {
+						
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							
+							
+							JOptionPane.showMessageDialog(null,button.getText());
+							
+						}
+					});
+	                
+			 }
+		});
 	
 		
 		
