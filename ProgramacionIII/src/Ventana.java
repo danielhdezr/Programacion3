@@ -9,6 +9,8 @@ import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.beans.JavaBean;
 import java.io.File;
@@ -996,7 +998,7 @@ public class Ventana extends JFrame{
 				int g = (int)Math.floor(Math.random()*255+1);
 				int b = (int)Math.floor(Math.random()*255+1);
 				
-				JButton otroBoton = new JButton("Click Me");
+				JButton otroBoton = new JButton(r+","+g+","+b);
 				otroBoton.setBorder(BorderFactory.createLineBorder(new Color(r,g,b),3));
 				otroBoton.setBounds(x,y,w,h);
 				otroBoton.setOpaque(true);
@@ -1005,9 +1007,11 @@ public class Ventana extends JFrame{
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						
-						JOptionPane.showMessageDialog(null,r);
+						JOptionPane.showMessageDialog(null,otroBoton.getText());
+						
 					}
 				});
+			
 				
 				getContentPane().repaint();
 				getContentPane().revalidate();
@@ -1015,6 +1019,9 @@ public class Ventana extends JFrame{
 				
 			}
 		});
+		
+		
+	
 		
 		
 		this.add(botonPanel);
