@@ -1114,33 +1114,88 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 
 
 		}
+		
+		
+		switch (e.getKeyCode()) {
+		case 65: 
+	
+			Component[] elementos = botonpanel.getComponents();
+			for(int i = 0; i <elementos.length; i++) 
+			{
+				if(elementos[i].getClass().toString().equals("class javax.swing.JButton"))
+				{
+					JButton btn = ((JButton) elementos[i]);
 
-		if (e.getKeyCode() == 87) 
-		{
-			Component [] elementos = botonpanel.getComponents();
-			for (int i = 0; i< elementos.length; i++) {
-
-				if (elementos[i].getClass().toString().equals("class javax.swing.JButton")) {
-
-					Component [] elemntos = botonpanel.getComponents();
-					JButton btn = ((JButton)elemntos[i]);
-
-					btn.setSize(btn.getHeight()+10, btn.getWidth()+10);
-
+					btn.setSize(btn.getWidth(), btn.getHeight());
+					btn.setLocation(btn.getX() - 10, btn.getY());
 					getContentPane().repaint();
 					getContentPane().revalidate();
-
 				}
-
-
 			}
+			break;
+			
+		case 68: 
+			
+			Component[] elementos2 = botonpanel.getComponents();
+			for(int i = 0; i <elementos2.length; i++)
+			{
+				if(elementos2[i].getClass().toString().equals("class javax.swing.JButton")) 
+				{
+					JButton btn = ((JButton) elementos2[i]);
 
-		}  
+					btn.setSize(btn.getWidth(), btn.getHeight());
+					btn.setLocation(btn.getX() + 10, btn.getY());
+					getContentPane().repaint();
+					getContentPane().revalidate();
+				}
+			}
+			
+			break;
+			
+		case 83: 
+		
+			Component[] elementos3 = botonpanel.getComponents();
+			for(int i = 0; i <elementos3.length; i++) 
+			{
+				if(elementos3[i].getClass().toString().equals("class javax.swing.JButton")) 
+				{
+					JButton btn = ((JButton) elementos3[i]);
+
+					btn.setLocation(btn.getX(), btn.getY() + 10);
+					btn.setSize(btn.getWidth(), btn.getHeight());			
+					getContentPane().repaint();
+					getContentPane().revalidate();
+				}
+			}
+			
+			break;
+			
+		case 87: 
+			
+			Component[] elementos4 = botonpanel.getComponents();
+			for(int i = 0; i <elementos4.length; i++) 
+			{
+				if(elementos4[i].getClass().toString().equals("class javax.swing.JButton"))
+				{
+					JButton btn = ((JButton) elementos4[i]);
+	
+					btn.setSize(btn.getWidth(), btn.getHeight());
+					btn.setSize(btn.getWidth() + 10, btn.getHeight() + 10);
+					btn.setLocation(btn.getX(), btn.getY() - 10);
+					getContentPane().repaint();
+					getContentPane().revalidate();
+				}
+			}
+			
+			break;
+		}
+
+	} 
 
 
 
 
-	}
+
 
 	@Override
 	public void keyReleased(KeyEvent e) {
