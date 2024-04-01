@@ -84,8 +84,16 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		//this.calculadora();
 		//this.mat();
 		//this.capital();
-		this.botones();
+		//this.botones();
+		this.examen();
 
+	}
+	
+	
+	public void examen() {
+		
+		
+		
 	}
 
 	//public void paint(Graphics g)	{
@@ -606,6 +614,8 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 
 
 	}
+	
+	
 
 	public void admin ()
 	{
@@ -1037,7 +1047,7 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 						getContentPane().repaint();
 						getContentPane().revalidate();
 
-						//						JOptionPane.showMessageDialog(null,otroBoton.getText());
+												JOptionPane.showMessageDialog(null,otroBoton.getText());
 
 					}
 				});
