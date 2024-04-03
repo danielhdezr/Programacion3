@@ -85,7 +85,7 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		//this.mat();
 		//this.capital();
 		//this.botones();
-		this.examen();
+		//this.examen();
 
 	}
 	

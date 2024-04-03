@@ -3,7 +3,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.GridLayout;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.security.PublicKey;
@@ -12,6 +15,9 @@ import javax.swing.JLabel;
 
 public class Gato {
 
+	public static int contadorX=0, contadorO=0;
+		
+	
 	private JFrame frame;
 
 	/**
@@ -46,7 +52,7 @@ public class Gato {
 	
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 581, 412);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
 		
@@ -57,8 +63,27 @@ public class Gato {
 		
 		
 		JButton btnNewButton = new JButton("");
-
-
+		btnNewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (turno == false)
+				{
+					btnNewButton.setIcon(new ImageIcon());
+					btnNewButton.setText("O");
+					btnNewButton.setIcon(new ImageIcon(getClass().getResource("Verificado.png")));
+					turno = !turno;
+					
+				}	
+				else 
+				{
+					btnNewButton.setText("X");
+					btnNewButton.setIcon(new ImageIcon(getClass().getResource("eliminar.png")));
+					turno = !turno;
+				}
+				
+			}
+		});
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_2 = new JButton("");
@@ -69,12 +94,14 @@ public class Gato {
 				if (turno == false)
 				{
 					btnNewButton_2.setText("O");
+					btnNewButton_2.setIcon(new ImageIcon(getClass().getResource("Verificado.png")));
 					turno = !turno;
 					
 				}	
 				else 
 				{
 					btnNewButton_2.setText("X");
+					btnNewButton_2.setIcon(new ImageIcon(getClass().getResource("eliminar.png")));
 					turno = !turno;
 				}
 			}
@@ -82,17 +109,85 @@ public class Gato {
 		
 		JButton btnNewButton_4 = new JButton("");
 		panel.add(btnNewButton_4);
-		
+		btnNewButton_4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			
+				if (turno == false)
+				{
+					btnNewButton_4.setText("O");
+					btnNewButton_4.setIcon(new ImageIcon(getClass().getResource("Verificar.png")));
+					turno = !turno;
+					
+				}	
+				else 
+				{
+					btnNewButton_4.setText("X");
+					btnNewButton_4.setIcon(new ImageIcon(getClass().getResource("eliminar.png")));
+					turno = !turno;
+				}
+			}
+		});		
 		JButton btnNewButton_3 = new JButton("");
 		panel.add(btnNewButton_3);
+		btnNewButton_3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (turno == false)
+				{
+					btnNewButton_3.setText("O");
+					turno = !turno;
+					
+				}	
+				else 
+				{
+					btnNewButton_3.setText("X");
+					turno = !turno;
+				}
+				
+			}
+		});
 		
 		JButton btnNewButton_1 = new JButton("");
 		panel.add(btnNewButton_1);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (turno == false)
+				{
+					btnNewButton_1.setText("O");
+					btnNewButton_1.setIcon(new ImageIcon(getClass().getResource("Verificado.png")));
+					turno = !turno;
+					
+				}	
+				else 
+				{
+					btnNewButton_1.setText("X");
+					btnNewButton_1.setIcon(new ImageIcon(getClass().getResource("eliminar.png")));
+					turno = !turno;
+				}
+				
+			}
+		});
 		
 		JButton btnNewButton_5 = new JButton("");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				if (turno == false)
+				{
+					
+					btnNewButton_5.setText("O");
+					turno = !turno;
+					
+				}	
+				else 
+				{
+					btnNewButton_5.setText("X");
+					turno = !turno;
+				}
 				
 			}
 		});
@@ -101,13 +196,76 @@ public class Gato {
 	
 		
 		JButton btnNewButton_6 = new JButton("");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (turno == false)
+				{
+					btnNewButton_6.setText("O");
+					turno = !turno;
+					
+				}	
+				else 
+				{
+					btnNewButton_6.setText("X");
+					turno = !turno;
+				}
+				
+			}
+		});
 		panel.add(btnNewButton_6);
 		
-		JButton btnNewButton_7 = new JButton("");
-		panel.add(btnNewButton_7);
-		
 		JButton btnNewButton_8 = new JButton("");
+		btnNewButton_8.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (turno == false)
+				{
+					btnNewButton_8.setText("O");
+					turno = !turno;
+					
+				}	
+				else 
+				{
+					btnNewButton_8.setText("X");
+					turno = !turno;
+				}
+			}
+		});
 		panel.add(btnNewButton_8);
+		
+		
+		JButton btnNewButton_7 = new JButton("");
+		btnNewButton_7.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (turno == false)
+				{
+					btnNewButton_7.setText("O");
+					turno = !turno;
+					
+				}	
+				else 
+				{
+					btnNewButton_7.setText("X");
+					turno = !turno;
+				}
+				
+			}
+		});
+		panel.add(btnNewButton_7);
+		Component[] elementos = panel.getComponents();
+		for(int i = 0; i <elementos.length; i++)
+		{
+			if(elementos[i].getClass().toString().equals("class javax.swing.JButton")) 
+			{
+				JButton btn = ((JButton) elementos[i]);
+				
+			}
+		}
 	}
 
 }
