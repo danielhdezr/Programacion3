@@ -7,13 +7,15 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
+import javax.sql.rowset.JoinRowSet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Pantallas extends JFrame implements KeyListener
 {
-
+	public int x=250, y=250;
 
 	public Pantallas() {
 		this.setSize(500, 500);
@@ -22,6 +24,7 @@ public class Pantallas extends JFrame implements KeyListener
 		this.setResizable(true);
 		this.setLocation(200,200);		
 		this.addKeyListener(this);
+		this.setFocusable(true);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		initialize();
@@ -41,12 +44,12 @@ public class Pantallas extends JFrame implements KeyListener
 		
 		JPanel panel_1 = new JPanel(){
 			@Override
-			protected void paintComponent(Graphics g)
+			public void paintComponent(Graphics g)
 			{
 				super.paintComponent(g);
 				Graphics2D g2d = (Graphics2D)g;	
-				g2d.setColor(Color.BLACK);
-				g2d.fillRect(200, 300, 100, 100);;
+				g2d.setColor(Color.BLACK);   
+				g2d.fillRect(x, y, 20, 20);;
 			}
 		};;
 		panel_1.setSize(getWidth(),getHeight());
@@ -79,6 +82,33 @@ public class Pantallas extends JFrame implements KeyListener
 
 		int codigo=e.getKeyCode();
 		System.out.println(codigo);
+		
+		switch (e.getKeyCode()) {
+		case 87:
+			//Arriba w
+			y-=10;
+
+			break;
+		case 83:
+			//Abajo S
+
+			y+=10;
+
+			break;
+		case 68:
+			//Derecha
+			x+=10;
+
+			break;
+
+		case 65:
+
+			x-=10;
+
+			break;
+
+		}
+		this.repaint();
 	}
 
 	@Override
