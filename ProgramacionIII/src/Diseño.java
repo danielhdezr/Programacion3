@@ -56,7 +56,7 @@ public class Diseño {
 	public Diseño() {
 
 		initialize();
-		
+		ventana();
 	}
 
 	/**
@@ -254,5 +254,9 @@ public class Diseño {
 		lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 14));
 		lblNewLabel.setBounds(38, 10, 193, 30);
 		panel.add(lblNewLabel);
+	}
+	public void  ventana()
+	{
+		
 	}
 }

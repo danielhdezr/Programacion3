@@ -5,6 +5,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
@@ -50,6 +51,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
+import javax.swing.SwingConstants;
 
 public class Ventana extends JFrame implements KeyListener, MouseListener{
 
@@ -67,21 +69,22 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		this.setResizable(true);
 		this.setLocation(200,200);		
 		this.setLocationRelativeTo(null);
-		this.setLayout(null);
 		this.iniciarComponentes();
 		this.setVisible(true);
 		this.addMouseListener(this);
-
+		
 
 	}
 
 	public void iniciarComponentes ()
 	{
-
+		JFrame frame = new JFrame();
+		
 		//this.admin();
 		//this.login();
-		this.arearegistro();
-		//this.arearegistro2();
+		//this.arearegistro(frame);
+		//this.iniciarSesion();
+		
 		//this.calculadora();
 		//this.mat();
 		//this.capital();
@@ -89,13 +92,7 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 
 
 	}
-
-
-
-
-
-
-	public void arearegistro() {
+	public void arearegistro(JFrame frame) {
 
 
 		JPanel panel = new JPanel();
@@ -147,8 +144,6 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		lblNewLabel_1_2_1.setBounds(151, 237, 142, 25);
 		panel.add(lblNewLabel_1_2_1);
 
-
-
 		JLabel lblNewLabel_1_2_2 = new JLabel("Confirmacion de contraseña");
 		lblNewLabel_1_2_2.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel_1_2_2.setBounds(151, 293, 183, 25);
@@ -198,11 +193,11 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Registro");
 		mnNewMenu.add(mntmNewMenuItem_1);
 
-
-		this.add(panel);
+		
+		getContentPane().add(panel);
 
 	}
-	public void arearegistro2() {
+	public void iniciarSesion() {
 
 
 		JPanel panel = new JPanel();
@@ -256,9 +251,23 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		lblNewLabel_1_1.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel_1_1.setBounds(142, 210, 178, 25);
 		panel.add(lblNewLabel_1_1);
+		
+		JButton registrarse = new JButton("Registrarse");
+		registrarse.setBounds(192, 400, 114, 25);
+		registrarse.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				
+				
+			}
+		});
+		panel.add(registrarse);
 
 
-		this.add(panel);
+		getContentPane().add(panel);
 
 	}
 
@@ -368,7 +377,7 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 
 
 
-		this.add(menu);
+		getContentPane().add(menu);
 	}
 
 	public void calculadora () {
@@ -499,7 +508,7 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		fondo.add(borrar);
 
 
-		this.add(fondo);
+		getContentPane().add(fondo);
 
 	}
 
@@ -553,7 +562,7 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 			west.add(boton);
 		}
 
-		this.add(panel);
+		getContentPane().add(panel);
 
 
 	}
@@ -633,7 +642,7 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		paneles[6].add(montotxt);
 
 
-		this.add(panel);
+		getContentPane().add(panel);
 
 
 
@@ -947,8 +956,6 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		// TODO Auto-generated method stub
 
 	}
-
-
 }
 
 
