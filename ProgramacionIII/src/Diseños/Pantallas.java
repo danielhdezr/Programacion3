@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 public class Pantallas extends JFrame implements KeyListener
 {
 	public int x=250, y=250;
+	private int obstaculoX = 200;
+	private int obstaculoY = 200;
 
 	public Pantallas() {
 		this.setSize(500, 500);
@@ -31,44 +33,51 @@ public class Pantallas extends JFrame implements KeyListener
 	}
 
 	private void initialize() {
-		
+
 		Pintar();
 	}
 
 	public void Pintar (){
-		
+
 		JPanel panelPrincipal = new JPanel();		
 		panelPrincipal.setSize(this.getWidth(),this.getHeight());
 		panelPrincipal.setLayout(new BorderLayout());
 
-		
+
 		JPanel panel_1 = new JPanel(){
 			@Override
 			public void paintComponent(Graphics g)
 			{
+
 				super.paintComponent(g);
 				Graphics2D g2d = (Graphics2D)g;	
 				g2d.setColor(Color.BLACK);   
 				g2d.fillRect(x, y, 20, 20);;
+
+				Obstaculo obstaculo= new Obstaculo(obstaculoX, obstaculoY,20 , 50, "#878A86");
+				g2d.setColor(Color.decode(obstaculo.getColor()));
+				g2d.fillRect(obstaculo.getX(), obstaculo.getY(), obstaculo.getAltura(), obstaculo.getAnchura());
+
 			}
 		};;
 		panel_1.setSize(getWidth(),getHeight());
 		panel_1.setBackground(new Color(255, 128, 255));
-		
+
 		panelPrincipal.add(panel_1, BorderLayout.CENTER);
-		
-		
+
+
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(Color.WHITE);
 		panelPrincipal.add(panel_2,BorderLayout.SOUTH);
-		
+
 		JButton btnNewButton = new JButton("Reiniciar");
 		panel_2.add(btnNewButton);
-		
-		
+
+
 		this.add(panelPrincipal);
-		
+
 	}
+
 
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -82,7 +91,7 @@ public class Pantallas extends JFrame implements KeyListener
 
 		int codigo=e.getKeyCode();
 		System.out.println(codigo);
-		
+
 		switch (e.getKeyCode()) {
 		case 87:
 			//Arriba w
@@ -96,17 +105,22 @@ public class Pantallas extends JFrame implements KeyListener
 
 			break;
 		case 68:
-			//Derecha
+			//Derecha D
 			x+=10;
 
 			break;
 
 		case 65:
+			//Izquierda A
 
 			x-=10;
 
 			break;
 
+		}
+		if (Obstaculo.detectarColision(x, y, 20, 20, obstaculoX, obstaculoY, 20, 50)) {
+			
+			System.out.println("Colisión detectada");
 		}
 		this.repaint();
 	}
