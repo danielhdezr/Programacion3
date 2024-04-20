@@ -16,8 +16,12 @@ import javax.swing.JPanel;
 public class Pantallas extends JFrame implements KeyListener
 {
 	public int x=250, y=250;
-	private int obstaculoX = 200;
-	private int obstaculoY = 200;
+	public int obstaculoX = 200;
+	public int obstaculoY = 200;
+	
+	Obstaculo obst [] = {new Obstaculo(obstaculoX, obstaculoY,20 , 50, "#878A86"),
+						new Obstaculo(200, y, obstaculoY, obstaculoX, "#878A86")	
+			};
 
 	public Pantallas() {
 		this.setSize(500, 500);
@@ -51,15 +55,13 @@ public class Pantallas extends JFrame implements KeyListener
 
 				super.paintComponent(g);
 				Graphics2D g2d = (Graphics2D)g;	
+				
 				g2d.setColor(Color.BLACK);   
-				g2d.fillRect(x, y, 20, 20);;
+				g2d.fillRect(x, y, 20, 20);
 
-				Obstaculo obstaculo= new Obstaculo(obstaculoX, obstaculoY,20 , 50, "#878A86");
-				g2d.setColor(Color.decode(obstaculo.getColor()));
-				g2d.fillRect(obstaculo.getX(), obstaculo.getY(), obstaculo.getAltura(), obstaculo.getAnchura());
-
+				
 			}
-		};;
+		};
 		panel_1.setSize(getWidth(),getHeight());
 		panel_1.setBackground(new Color(255, 128, 255));
 
@@ -75,6 +77,8 @@ public class Pantallas extends JFrame implements KeyListener
 
 
 		this.add(panelPrincipal);
+		this.repaint();
+		this.revalidate();
 
 	}
 
@@ -91,30 +95,31 @@ public class Pantallas extends JFrame implements KeyListener
 
 		int codigo=e.getKeyCode();
 		System.out.println(codigo);
-
+		
+		int dir=0;
 		switch (e.getKeyCode()) {
 		case 87:
 			//Arriba w
 			y-=10;
-
+			dir=1;
 			break;
 		case 83:
 			//Abajo S
 
 			y+=10;
-
+			dir=2;
 			break;
 		case 68:
 			//Derecha D
 			x+=10;
-
+			dir=3;
 			break;
 
 		case 65:
 			//Izquierda A
 
 			x-=10;
-
+			dir=4;
 			break;
 
 		}
@@ -124,7 +129,8 @@ public class Pantallas extends JFrame implements KeyListener
 		}
 		this.repaint();
 	}
-
+	
+	
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
