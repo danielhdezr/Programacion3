@@ -31,7 +31,8 @@ public class Pantallas extends JFrame implements KeyListener
 	Timer mover;
 	Timer reloj;
 	public int dir=0;
-
+	JLabel cronometroLabel;
+	
 	Obstaculo player = new Obstaculo(50, 40, 10, 10, "#120B0B");
 
 	Obstaculo obst [] = {new Obstaculo(30, 30, 10, 480, "#878A86"),
@@ -76,8 +77,6 @@ public class Pantallas extends JFrame implements KeyListener
 		Pintar();
 	}
 
-
-
 	public void Pintar (){
 
 		JPanel panelPrincipal = new JPanel();		
@@ -118,7 +117,7 @@ public class Pantallas extends JFrame implements KeyListener
 
 		JPanel panelArriba = new JPanel();
 		panelArriba.setBackground(Color.WHITE);
-        JLabel cronometroLabel = new JLabel("TIEMPO");
+        cronometroLabel = new JLabel("TIEMPO");
         cronometroLabel.setBackground(Color.decode("#CAA115"));
         panelArriba.add(cronometroLabel);
 		panelPrincipal.add(panelArriba,BorderLayout.NORTH);
@@ -133,15 +132,17 @@ public class Pantallas extends JFrame implements KeyListener
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-
+				
+				reloj.stop();
 				dir=0;	
 				min=0;
-				seg=-1;
+				seg=0;
 				player.setX(50);
 				player.setY(40);
 				requestFocus();
+				cronometroLabel.setText("Tiempo: "+"   "+"Minutos: "+min+"  Segundo:   "+seg);
 				repaint();
-
+				
 			}
 		});
 
@@ -167,14 +168,14 @@ public class Pantallas extends JFrame implements KeyListener
 			}
 		});
 		
-		reloj.start();
+
 		
 		Timer timer = new Timer(100,new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-
+				
 				actualizar();
 				repaint();
 			}
@@ -196,15 +197,19 @@ public class Pantallas extends JFrame implements KeyListener
 		{
 		case 87:
 			dir=1;
+			reloj.start();
 			break;
 		case 83:
 			dir=2;
+			reloj.start();
 			break;
 		case 68:
 			dir=3;
+			reloj.start();
 			break;
 		case 65:
 			dir=4;
+			reloj.start();
 			break;
 		}
 
@@ -253,11 +258,11 @@ public class Pantallas extends JFrame implements KeyListener
 			JOptionPane.showMessageDialog(null,"Felicidades has termiado. Su tiempo fue de: "+min+":"+seg);
 			player.setX(50);
 			player.setY(40);
-			
-			reloj.start();
 			dir=0;
-			seg=-1;
+			seg=0;
 			min=0;
+			cronometroLabel.setText("Tiempo: "+"   "+"Minutos: "+min+"  Segundo:   "+seg);
+
 			repaint();
 
 		}
