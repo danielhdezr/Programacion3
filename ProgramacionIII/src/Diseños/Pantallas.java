@@ -28,7 +28,6 @@ public class Pantallas extends JFrame implements KeyListener
 
 
 	int seg=0, min=0;
-	Timer mover;
 	Timer reloj;
 	public int dir=0;
 	JLabel cronometroLabel;
@@ -151,6 +150,9 @@ public class Pantallas extends JFrame implements KeyListener
 		this.add(panelPrincipal);
 		this.repaint();
 		this.revalidate();
+		
+		
+		
 
 		reloj = new Timer(1000, new ActionListener() {
 
@@ -167,6 +169,10 @@ public class Pantallas extends JFrame implements KeyListener
 				cronometroLabel.setText("Tiempo: "+"   "+"Minutos: "+min+"  Segundo:   "+seg);
 			}
 		});
+		
+		
+		
+		
 		
 
 		

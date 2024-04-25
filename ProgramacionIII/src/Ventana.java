@@ -51,6 +51,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
 import javax.swing.SwingConstants;
 
 public class Ventana extends JFrame implements KeyListener, MouseListener{
@@ -83,7 +87,7 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		//this.admin();
 		//this.login();
 		//this.arearegistro(frame);
-		//this.iniciarSesion();
+		this.iniciarSesion();
 		
 		//this.calculadora();
 		//this.mat();
@@ -260,7 +264,26 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				
+				ObjectMapper maper = new ObjectMapper();
 				
+				maper.enable(SerializationFeature.INDENT_OUTPUT);
+				
+				String nombre="Daniel";
+				String apellido="Hernandez";
+				
+				Jason jason = new Jason(nombre, apellido);
+				
+				try {
+					
+					maper.writeValue(new File("Nombres.json"), jason);
+					
+					System.out.println("Nombre: "+jason.getNombre());
+					System.out.println("Apellidos: "+jason.getApellido());
+					
+				} catch (Exception e2) {
+					
+					e2.printStackTrace();					
+				}
 				
 			}
 		});
