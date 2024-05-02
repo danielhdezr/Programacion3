@@ -52,6 +52,7 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -59,8 +60,8 @@ import javax.swing.SwingConstants;
 
 public class Ventana extends JFrame implements KeyListener, MouseListener{
 
-
-
+	private JFrame frame;
+	 JPanel panel;
 
 	public Ventana ()
 	{
@@ -76,19 +77,19 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		this.iniciarComponentes();
 		this.setVisible(true);
 		this.addMouseListener(this);
-		
+
 
 	}
 
 	public void iniciarComponentes ()
 	{
-		JFrame frame = new JFrame();
-		
+	
+
 		//this.admin();
 		//this.login();
 		//this.arearegistro(frame);
-		this.iniciarSesion();
-		
+		this.iniciarSesion(frame);
+
 		//this.calculadora();
 		//this.mat();
 		//this.capital();
@@ -98,8 +99,7 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 	}
 	public void arearegistro(JFrame frame) {
 
-
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setSize(getWidth(),getHeight());
 		panel.setBackground(new Color(211, 188, 246));
 		panel.setLayout(null);
@@ -111,7 +111,7 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		lblNewLabel.setBackground(new Color(220, 202, 138));
 		lblNewLabel.setBounds(192, 41, 132, 41);
 		panel.add(lblNewLabel);
-		
+
 
 		JLabel lblNewLabel_1 = new JLabel("Ingresa tu nombre: ");
 		lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -156,7 +156,7 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		JPasswordField passwordField_1 = new JPasswordField();
 		passwordField_1.setBounds(147, 318, 187, 25);
 		panel.add(passwordField_1);
-		
+
 		JPasswordField passwordField = new JPasswordField();
 		passwordField.setBounds(147, 257, 187, 25);
 		panel.add(passwordField);
@@ -164,20 +164,20 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		JButton btnNewButton = new JButton("Registrarse");
 		btnNewButton.setBounds(192, 445, 114, 41);
 		btnNewButton.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				String Contra1 = passwordField.getText();
 				String contra2 = passwordField_1.getText();
-				
+
 				if(Contra1.equals(contra2))
 				{
 					JOptionPane.showMessageDialog(null, "Holas");	
 				}
-				
+
 			}}
-		);
+				);
 		panel.add(btnNewButton);
 
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Acepto los terminos y condiciones");
@@ -197,94 +197,105 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Registro");
 		mnNewMenu.add(mntmNewMenuItem_1);
 
-		
+
 		getContentPane().add(panel);
 
 	}
-	public void iniciarSesion() {
+	public void iniciarSesion(JFrame frame) {
 
 
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setSize(getWidth(),getHeight());
 		panel.setBackground(new Color(211, 188, 246));
 		panel.setLayout(null);
-	
-		
-	
+
+
+
 		JLabel lblNewLabel = new JLabel("Iniciar sesion");
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 24));
 		lblNewLabel.setForeground(new Color(39, 49, 237));
 		lblNewLabel.setBackground(new Color(220, 202, 138));
 		lblNewLabel.setBounds(175, 82, 162, 41);
 		panel.add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("Ingresa tu nombre: ");
 		lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(142, 147, 132, 25);
 		panel.add(lblNewLabel_1);
+
 		
+		//Usuario
 		JTextField textField = new JTextField();
 		textField.setBounds(142, 175, 208, 25);
 		panel.add(textField);
-		
-		
-		JButton btnNewButton = new JButton("Inisiar secion");
-		
-		btnNewButton.setBounds(192, 329, 114, 41);
-		panel.add(btnNewButton);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 543, 22);
 		panel.add(menuBar);
-		
+
 		JMenu mnNewMenu = new JMenu("Menu");
 		menuBar.add(mnNewMenu);
-		
+
 		JMenuItem mntmNewMenuItem = new JMenuItem("Login");
 		mnNewMenu.add(mntmNewMenuItem);
-		
+
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Registro");
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
+		//Contraseña
 		JTextField textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(142, 238, 208, 25);
 		panel.add(textField_1);
-		
+
 		JLabel lblNewLabel_1_1 = new JLabel("Ingresa tu contraseña:");
 		lblNewLabel_1_1.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel_1_1.setBounds(142, 210, 178, 25);
 		panel.add(lblNewLabel_1_1);
-		
-		JButton registrarse = new JButton("Registrarse");
-		registrarse.setBounds(192, 400, 114, 25);
+
+		JButton registrarse = new JButton("Inciar sesion");
+		registrarse.setBounds(192, 350, 114, 41);
 		registrarse.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
+
 				ObjectMapper maper = new ObjectMapper();
-				
+
 				maper.enable(SerializationFeature.INDENT_OUTPUT);
-				
-				String nombre="Daniel";
-				String apellido="Hernandez";
-				
-				Jason jason = new Jason(nombre, apellido);
-				
+				ObjectMapper objectMapper = new ObjectMapper(); 
+				JsonNode jsonNode;
+
 				try {
+
+					jsonNode = objectMapper.readTree(new File("src/Json/Nombres.json")); 
 					
-					maper.writeValue(new File("Nombres.json"), jason);
+					String nombre = jsonNode.get("nombre").asText(); 
+					String contraseña = jsonNode.get("Contraseña").asText();
 					
-					System.out.println("Nombre: "+jason.getNombre());
-					System.out.println("Apellidos: "+jason.getApellido());
+					String nombreObtenido = textField.getText();
+					String contraObtenida = textField_1.getText();
 					
+					if (nombreObtenido.equals(nombre) && contraObtenida.equals(contraseña))
+					{
+						JOptionPane.showMessageDialog(null, "Ha iniciado sesion correctamente");
+						
+						frame.remove(panel);
+						frame.revalidate();
+						frame.repaint();
+						arearegistro(frame);
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Usuario no encontrado");
+					}
+
 				} catch (Exception e2) {
 					
-					e2.printStackTrace();					
+					e2.printStackTrace();
+					System.out.println("No se pudo leer el jackson");
 				}
-				
+
 			}
 		});
 		panel.add(registrarse);
@@ -322,32 +333,6 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		inscripcion.setOpaque(true);
 		inscripcion.setFont(new Font("Arial",Font.BOLD,16));
 		menu.add(inscripcion);
-
-
-		//		JLabel titleWidget = new JLabel("Total de usuarios");
-		//		titleWidget.setBounds(100, 110, 300, 40);
-		//		titleWidget.setForeground(Color.WHITE);
-		//		menu.add(titleWidget);
-		//		
-		//		JLabel totalUser = new JLabel("100");
-		//		totalUser.setBounds(180, 150, 300, 40);
-		//		totalUser.setFont(new Font("Arial",Font.BOLD,20));
-		//		totalUser.setForeground(Color.WHITE);
-		//		menu.add(totalUser);
-		//		
-		//		JLabel widget = new JLabel("");
-		//		widget.setBounds(40, 120, 150, 50);
-		//		widget.setOpaque(true);
-		//		widget.setBackground(Color.BLACK);
-		//		menu.add(widget);
-		//		
-
-
-		//		JLabel tabla = new JLabel("");
-		//		tabla.setBounds(40, 150, 900, 250);
-		//		tabla.setOpaque(true);
-		//		tabla.setBackground(Color.BLACK);
-		//		menu.add(tabla);
 
 		JButton entrada = new JButton("Exportar");
 		entrada.setSize(100,20);

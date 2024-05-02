@@ -3,10 +3,9 @@ public class Jason {
 	
 	String nombre, apellido;
 	
-	public Jason(String nombre,String apellido) {
+	public Jason() {
 		
-		this.nombre=nombre;
-		this.apellido=apellido;
+	
 	}
 
 	public String getNombre() {

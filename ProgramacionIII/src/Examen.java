@@ -248,7 +248,7 @@ public class Examen {
 		
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\herna\\OneDrive\\Documentos\\4to Semestre\\Programacion\\ProgramacionIII\\src\\Verificado.png"));
-		lblNewLabel_4.setBounds(298, 164, 34, 34);
+		lblNewLabel_4.setBounds(274, 164, 34, 34);
 		panel_1.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("Añadir");
