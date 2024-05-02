@@ -61,7 +61,7 @@ import javax.swing.SwingConstants;
 public class Ventana extends JFrame implements KeyListener, MouseListener{
 
 	private JFrame frame;
-	 JPanel panel;
+	 JPanel panel,panel1;
 
 	public Ventana ()
 	{
@@ -99,67 +99,66 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 	}
 	public void arearegistro(JFrame frame) {
 
-		panel = new JPanel();
-		panel.setSize(getWidth(),getHeight());
-		panel.setBackground(new Color(211, 188, 246));
-		panel.setLayout(null);
-
+		panel1 = new JPanel();
+		panel1.setSize(getWidth(),getHeight());
+		panel1.setBackground(new Color(211, 188, 246));
+		panel1.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Registrarse");
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 18));
 		lblNewLabel.setForeground(new Color(39, 49, 237));
 		lblNewLabel.setBackground(new Color(220, 202, 138));
 		lblNewLabel.setBounds(192, 41, 132, 41);
-		panel.add(lblNewLabel);
+		panel1.add(lblNewLabel);
 
 
 		JLabel lblNewLabel_1 = new JLabel("Ingresa tu nombre: ");
 		lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(116, 113, 132, 25);
-		panel.add(lblNewLabel_1);
+		panel1.add(lblNewLabel_1);
 
 		JTextField textField = new JTextField();
 		textField.setBounds(116, 139, 132, 25);
-		panel.add(textField);
+		panel1.add(textField);
 
 
 		JTextField textField_1 = new JTextField();
 
 		textField_1.setBounds(258, 139, 132, 25);
-		panel.add(textField_1);
+		panel1.add(textField_1);
 
 		JLabel lblNewLabel_1_1 = new JLabel("Apellidos: ");
 		lblNewLabel_1_1.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel_1_1.setBounds(305, 113, 132, 25);
-		panel.add(lblNewLabel_1_1);
+		panel1.add(lblNewLabel_1_1);
 
 		JLabel lblNewLabel_1_2 = new JLabel("Correo electronico: ");
 		lblNewLabel_1_2.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel_1_2.setBounds(151, 185, 142, 25);
-		panel.add(lblNewLabel_1_2);
+		panel1.add(lblNewLabel_1_2);
 
 		JTextField textField_2 = new JTextField();
 
 		textField_2.setBounds(147, 208, 187, 25);
-		panel.add(textField_2);
+		panel1.add(textField_2);
 
 		JLabel lblNewLabel_1_2_1 = new JLabel("Contraseña:");
 		lblNewLabel_1_2_1.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel_1_2_1.setBounds(151, 237, 142, 25);
-		panel.add(lblNewLabel_1_2_1);
+		panel1.add(lblNewLabel_1_2_1);
 
 		JLabel lblNewLabel_1_2_2 = new JLabel("Confirmacion de contraseña");
 		lblNewLabel_1_2_2.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel_1_2_2.setBounds(151, 293, 183, 25);
-		panel.add(lblNewLabel_1_2_2);
+		panel1.add(lblNewLabel_1_2_2);
 
 		JPasswordField passwordField_1 = new JPasswordField();
 		passwordField_1.setBounds(147, 318, 187, 25);
-		panel.add(passwordField_1);
+		panel1.add(passwordField_1);
 
 		JPasswordField passwordField = new JPasswordField();
 		passwordField.setBounds(147, 257, 187, 25);
-		panel.add(passwordField);
+		panel1.add(passwordField);
 
 		JButton btnNewButton = new JButton("Registrarse");
 		btnNewButton.setBounds(192, 445, 114, 41);
@@ -178,15 +177,15 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 
 			}}
 				);
-		panel.add(btnNewButton);
+		panel1.add(btnNewButton);
 
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Acepto los terminos y condiciones");
 		chckbxNewCheckBox.setBounds(132, 366, 226, 21);
-		panel.add(chckbxNewCheckBox);
+		panel1.add(chckbxNewCheckBox);
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 543, 22);
-		panel.add(menuBar);
+		panel1.add(menuBar);
 
 		JMenu mnNewMenu = new JMenu("Menu");
 		menuBar.add(mnNewMenu);
@@ -198,7 +197,7 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		mnNewMenu.add(mntmNewMenuItem_1);
 
 
-		getContentPane().add(panel);
+		getContentPane().add(panel1);
 
 	}
 	public void iniciarSesion(JFrame frame) {
@@ -208,9 +207,7 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 		panel.setSize(getWidth(),getHeight());
 		panel.setBackground(new Color(211, 188, 246));
 		panel.setLayout(null);
-
-
-
+		
 		JLabel lblNewLabel = new JLabel("Iniciar sesion");
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 24));
 		lblNewLabel.setForeground(new Color(39, 49, 237));
@@ -281,10 +278,11 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 					{
 						JOptionPane.showMessageDialog(null, "Ha iniciado sesion correctamente");
 						
-						frame.remove(panel);
-						frame.revalidate();
-						frame.repaint();
+						/*frame.getContentPane().removeAll();
 						arearegistro(frame);
+						frame.repaint();
+						frame.revalidate();	*/		
+						
 					}
 					else {
 						JOptionPane.showMessageDialog(null, "Usuario no encontrado");
