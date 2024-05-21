@@ -169,11 +169,6 @@ public class Pantallas extends JFrame implements KeyListener
 				cronometroLabel.setText("Tiempo: "+"   "+"Minutos: "+min+"  Segundo:   "+seg);
 			}
 		});
-		
-		
-		
-		
-		
 
 		
 		Timer timer = new Timer(100,new ActionListener() {

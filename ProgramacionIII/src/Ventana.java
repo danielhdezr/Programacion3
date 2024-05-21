@@ -278,13 +278,9 @@ public class Ventana extends JFrame implements KeyListener, MouseListener{
 					{
 						JOptionPane.showMessageDialog(null, "Ha iniciado sesion correctamente");
 						
-						/*frame.getContentPane().removeAll();
-						arearegistro(frame);
-						frame.repaint();
-						frame.revalidate();	*/		
-						
 					}
-					else {
+					else 
+					{
 						JOptionPane.showMessageDialog(null, "Usuario no encontrado");
 					}
 
